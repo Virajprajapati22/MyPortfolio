@@ -34,6 +34,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   /* @apply bg-[#AAEEC4] font-sans text-black; */
   /* color: var(--foreground); */
