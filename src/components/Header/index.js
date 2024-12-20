@@ -1,10 +1,15 @@
 // import resume from "../../../public/Viraj_Prajapati_Resume.pdf";
 import pdficon from "../../../public/pdficon.svg";
 
+import { useState } from "react";
+
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <header className="py-4 top-0 w-full z-10">
-      <nav className="container mx-auto flex justify-between items-center">
+      <nav className="container mx-auto px-4 md:px-8 flex justify-between items-center">
+        {/* Logo */}
         <h1 className="text-3xl font-bold text-black">
           <svg
             width="141"
@@ -23,7 +28,9 @@ export default function Header() {
             />
           </svg>
         </h1>
-        <ul className="flex space-x-6">
+
+        {/* Desktop Navigation */}
+        <ul className="hidden md:flex space-x-6">
           <li>
             <a
               href="#about"
@@ -66,23 +73,95 @@ export default function Header() {
           </li>
           <li>
             <a
-              href={
-                "https://drive.google.com/file/d/1mUu1TeHUXzttqbSnRdh1C3MjPe28dTDL/view?usp=drive_open"
-              } // Path to your resume file
-              download="Viraj_Prajapati.pdf" // Filename for download
-              className="flex items-center text-black hover:text-gray-800 transition duration-300"
+              href="/Viraj_Prajapati_Resume.pdf"
               target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-black hover:text-gray-800 transition duration-300"
             >
-              <img
-                src={pdficon?.src} // Path to your logo
-                alt="Resume Logo"
-                className="w-5 h-5 mr-2"
-              />
-              Download CV
+              <img src="/pdficon.svg" alt="PDF Icon" className="w-4 h-4" />
+              Resume
             </a>
           </li>
         </ul>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-black"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
       </nav>
+
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <ul className="md:hidden bg-white shadow-md py-2 px-4 space-y-4">
+          <li>
+            <a
+              href="#about"
+              className="block text-black hover:text-gray-800 transition duration-300"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="#skills"
+              className="block text-black hover:text-gray-800 transition duration-300"
+            >
+              Skills
+            </a>
+          </li>
+          <li>
+            <a
+              href="#projects"
+              className="block text-black hover:text-gray-800 transition duration-300"
+            >
+              Projects
+            </a>
+          </li>
+          <li>
+            <a
+              href="#research"
+              className="block text-black hover:text-gray-800 transition duration-300"
+            >
+              Research
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              className="block text-black hover:text-gray-800 transition duration-300"
+            >
+              Contact
+            </a>
+          </li>
+          <li>
+            <a
+              href="/Viraj_Prajapati_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-black hover:text-gray-800 transition duration-300"
+            >
+              <img src="/pdficon.svg" alt="PDF Icon" className="w-4 h-4" />
+              Resume
+            </a>
+          </li>
+        </ul>
+      )}
     </header>
   );
 }
