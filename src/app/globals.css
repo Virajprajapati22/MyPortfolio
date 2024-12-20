@@ -14,8 +14,31 @@
   }
 }
 
+/* @font-face {
+  font-family: "Aperçu Regular";
+  src: url("/fonts/Aperçu-Regular.woff2") format("woff2"),
+    url("/fonts/Aperçu-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+} */
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+ /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+  }
+}
+
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* @apply bg-[#AAEEC4] font-sans text-black; */
+  /* color: var(--foreground); */
+  /* background: var(--background); */
+  font-family: apercu, sans-serif;
+  font-weight: bold;
+  font-style: normal;
 }
